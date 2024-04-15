@@ -1,48 +1,43 @@
 import ReactDOM from "react-dom/client";
-import { createBrowserRouter, Link, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import './index.css';
+
+import App from "./App";
 
 // page components
 
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Article from "./pages/Article";
-import './index.css'
+
 // router creation
+
+const getWeatherOfTheDay = () => {
+  return "sunny";
+};
 
 const router = createBrowserRouter([
   {
-    path: "/",
-    element: (
-      <>
-        <nav>
-          <Link to="/">Home</Link>
-          <Link to="/about">About</Link>
-          <Link to="/articles/1">Article </Link>
-        </nav>
-        <main>
-          <Home />
-        </main>
-      </>
-    ),
-  },
-  {
-    path: "/about",
-    element: (
-      <>
-        <nav>
-          <Link to="/">Home</Link>
-          <Link to="/about">About</Link>
-          <Link to="/articles">Articles</Link>
-        </nav>
-        <main>
-          <About />
-        </main>
-      </>
-    ),
-  },
-  {
-    path: "/articles/:id",
-    element: <Article />,
+    element: <App />,
+    loader: () => {
+      const weather = "sunny";
+      return weather;
+    },
+    id:"app",
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/about",
+        element: <About />,
+      },
+      {
+        path: "/articles/:id",
+        element: <Article />,
+      },
+    ],
   },
 ]);
 

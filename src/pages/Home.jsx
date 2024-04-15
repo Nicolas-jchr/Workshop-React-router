@@ -1,23 +1,12 @@
-import { useEffect, useState } from "react";
-
-const getWeatherOfTheDay = () => {
-  return "sunny";
-};
+import { useRouteLoaderData } from "react-router-dom";
 
 function Home() {
-  const [weather, setWeather] = useState(null);
-
-  useEffect(() => {
-    const weatherOfTheDay = getWeatherOfTheDay();
-
-    setWeather(weatherOfTheDay);
-  }, []);
+  const weather = useRouteLoaderData("app");
 
   return (
     <>
-      <h1>Hello i'm the page Home</h1>
-
-      {weather != null && <p>Today is a {weather} day</p>}
+      <h1>Hello from Home</h1>
+      <p>Today is a {weather} day</p>
     </>
   );
 }
