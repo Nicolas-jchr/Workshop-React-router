@@ -5,6 +5,7 @@ import { createBrowserRouter, Link, RouterProvider } from "react-router-dom";
 
 import Home from "./pages/Home";
 import About from "./pages/About";
+import Article from "./pages/Article";
 import './index.css'
 // router creation
 
@@ -16,6 +17,7 @@ const router = createBrowserRouter([
         <nav>
           <Link to="/">Home</Link>
           <Link to="/about">About</Link>
+          <Link to="/articles/1">Article </Link>
         </nav>
         <main>
           <Home />
@@ -30,12 +32,17 @@ const router = createBrowserRouter([
         <nav>
           <Link to="/">Home</Link>
           <Link to="/about">About</Link>
+          <Link to="/articles">Articles</Link>
         </nav>
         <main>
           <About />
         </main>
       </>
     ),
+  },
+  {
+    path: "/articles/:id",
+    element: <Article />,
   },
 ]);
 

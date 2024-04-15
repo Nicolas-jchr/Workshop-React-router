@@ -11,12 +11,19 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  display: flex;
+  justify-content: center;
 }
 
 a {
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
   font-weight: 500;
-  color: #646cff;
+  color: black;
   text-decoration: inherit;
+  border: 1rem solid black;
 }
 a:hover {
   color: #535bf2;
@@ -25,9 +32,12 @@ a:hover {
 body {
   margin: 0;
   display: flex;
+  justify-content: center;
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-color: red;
+  color: white;
 }
 
 h1 {
